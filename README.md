@@ -58,6 +58,25 @@ Maven:
 </dependencies>
 ```
 
+
+## How to use
+```kotlin
+val plugin = ... // Your plugin instance
+val location = ... // Location of your NPC
+
+val npkFramework = NPKFramework(plugin)
+
+val npc = npkFramework.createNPC(
+    "npc_name", // Name of your NPC
+    location, // Location of your NPC 
+    Skin(...) // Your skin
+) {
+    // Touching Handler DSL:
+    
+    println("${it.player.name} has touched me!")
+}
+```
+
 ## License
 This project is licensed under the GNU General Public License v3.0.
 

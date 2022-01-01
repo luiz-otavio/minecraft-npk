@@ -1,6 +1,7 @@
 package io.github.luizotavio.npk
 
 import io.github.luizotavio.npk.skin.Skin
+import io.github.luizotavio.npk.touch.TouchingHandler
 import org.bukkit.Location
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
@@ -56,6 +57,12 @@ abstract class NPC(
     abstract fun getEntity(): LivingEntity
 
     /**
+     * Retrieve the bukkit-entity from this NPC
+     * @return TouchingHandler from this NPC
+     */
+    abstract fun getTouchingHandler(): TouchingHandler?
+
+    /**
      * Change the current skin of the NPC
      * @param skin New skin of the NPC
      */
@@ -66,4 +73,9 @@ abstract class NPC(
      */
     abstract fun destroy()
 
+    /**
+     * Change the current touching handler of the NPC
+     * @param touchingHandler New touching handler of the NPC
+     */
+    abstract fun setTouchingHandler(touchingHandler: TouchingHandler)
 }
