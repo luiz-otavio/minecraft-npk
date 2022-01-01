@@ -1,3 +1,4 @@
 rootProject.name = 'mc-npk'
 
+include 'common'
 include '1.8.8'
