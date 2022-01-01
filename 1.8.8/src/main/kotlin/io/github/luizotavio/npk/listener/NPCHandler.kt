@@ -52,11 +52,7 @@ class NPCHandler(
 
     @EventHandler(priority = EventPriority.MONITOR)
     fun onInteractAtNPC(event: PlayerInteractAtNPCEvent) {
-        val npc = event.npc
-
-        val handler = npc.getTouchingHandler() ?: return
-
-        handler.invoke(npc, event.clickType, event.player)
+        event.npc.getTouchingHandler()?.invoke(event)
     }
 
     private fun getOrNull(entity: Entity): NPC? {

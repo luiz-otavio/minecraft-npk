@@ -1,7 +1,5 @@
 package io.github.luizotavio.npk.touch
 
-import io.github.luizotavio.npk.NPC
-import io.github.luizotavio.npk.event.ClickType
-import org.bukkit.entity.Player
+import io.github.luizotavio.npk.event.PlayerInteractAtNPCEvent
 
-typealias TouchingHandler = (NPC, ClickType, Player) -> Unit
+typealias TouchingHandler = (PlayerInteractAtNPCEvent) -> Unit
