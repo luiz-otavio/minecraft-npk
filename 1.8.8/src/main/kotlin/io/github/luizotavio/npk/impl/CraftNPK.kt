@@ -101,7 +101,8 @@ class CraftNPK(
 
         packetPlayOutScoreboardTeamUpdate = PacketPlayOutScoreboardTeam(
             scoreboardTeam,
-            Collections.singletonList(id), 3
+            Collections.singletonList(id),
+            3
         )
 
         hologram = CraftHologram(location)
