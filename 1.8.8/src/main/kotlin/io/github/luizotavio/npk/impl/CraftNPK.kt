@@ -115,12 +115,10 @@ class CraftNPK(
             packetPlayOutEntityHeadRotation
         )
 
-        visibility.addAll(
-            players
-        )
-
         for (player in players) {
             hologram.showTo(player)
+
+            visibility.add(player)
         }
     }
 
