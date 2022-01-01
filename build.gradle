@@ -1,22 +1,11 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
-    id 'java'
-}
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
-group 'io.github.luizotavio'
-version '1.0-SNAPSHOT'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 
-repositories {
-    mavenCentral()
-    mavenCentral()
-}
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-}
-
-test {
-    useJUnitPlatform()
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
 }
