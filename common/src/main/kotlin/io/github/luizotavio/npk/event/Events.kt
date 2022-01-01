@@ -1,6 +1,7 @@
 package io.github.luizotavio.npk.event
 
 import io.github.luizotavio.npk.NPC
+import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.Cancellable
 import org.bukkit.event.Event
@@ -25,12 +26,16 @@ open class NPCEvent(
     override fun setCancelled(cancel: Boolean) {
         isCancelled = cancel
     }
+
+    fun call() {
+        Bukkit.getPluginManager().callEvent(this)
+    }
 }
 
 /**
  * Called when a player interacts with an NPC.
  */
-class PlayerInteractAtNPC(
+class PlayerInteractAtNPCEvent(
     npc: NPC,
     val player: Player,
     val clickType: ClickType
