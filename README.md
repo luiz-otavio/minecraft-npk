@@ -4,6 +4,7 @@
 Easy to use, fast and efficient library to make non-playable-characters (NPC) inside a minecraft server.
 
 ## Compatible with
+- 1.8.1-SNAPSHOT (1_8_R1);
 - 1.8.8-SNAPSHOT (1_8_R3);
 - 1.12.2-SNAPSHOT (1_12_R1).
 
