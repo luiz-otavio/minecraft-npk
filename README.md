@@ -1,4 +1,6 @@
 # mc-npk
+[![](https://jitpack.io/v/luiz-otavio/mc-npk.svg)](https://jitpack.io/#luiz-otavio/mc-npk)
+
 Easy to use, fast and efficient library to make non-playable-characters (NPC) inside a minecraft server.
 
 ## Compatible with
