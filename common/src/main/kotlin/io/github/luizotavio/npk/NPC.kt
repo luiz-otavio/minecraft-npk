@@ -9,6 +9,7 @@ import org.bukkit.plugin.Plugin
 abstract class NPC(
     val plugin: Plugin,
     val id: String,
+    val location: Location,
     var skin: Skin? = null,
 ) {
 
@@ -46,7 +47,7 @@ abstract class NPC(
      * Remove the given line from the NPC
      * @param line Line to remove
      */
-    abstract fun removeLine(line: String)
+    abstract fun removeLine(index: Int)
 
     /**
      * Retrieve the bukkit-entity from this NPC
