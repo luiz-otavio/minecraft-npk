@@ -50,6 +50,15 @@ class NPCHandler(
         PlayerInteractAtNPCEvent(npc, damager, ClickType.LEFT).call()
     }
 
+    @EventHandler(priority = EventPriority.MONITOR)
+    fun onInteractAtNPC(event: PlayerInteractAtNPCEvent) {
+        val npc = event.npc
+
+        val handler = npc.getTouchingHandler() ?: return
+
+        handler.invoke(npc, event.clickType, event.player)
+    }
+
     private fun getOrNull(entity: Entity): NPC? {
         val metadataValues = entity.getMetadata("NPC")
 

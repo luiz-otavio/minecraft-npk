@@ -6,6 +6,7 @@ import io.github.luizotavio.npk.NPC
 import io.github.luizotavio.npk.hologram.CraftHologram
 import io.github.luizotavio.npk.skin.Skin
 import io.github.luizotavio.npk.text.translate
+import io.github.luizotavio.npk.touch.TouchingHandler
 import net.minecraft.server.v1_12_R1.*
 import org.bukkit.Bukkit
 import org.bukkit.Location
@@ -23,7 +24,7 @@ class CraftNPK(
     plugin: Plugin,
     id: String,
     location: Location,
-    skin: Skin? = null,
+    skin: Skin? = null
 ) : NPC(
     plugin,
     id,
@@ -53,6 +54,8 @@ class CraftNPK(
     private val visibility = hashSetOf<Player>()
 
     private val hologram: CraftHologram
+
+    private var touchingHandler: TouchingHandler? = null
 
     init {
         val worldServer = (location.world as CraftWorld).handle
@@ -172,6 +175,8 @@ class CraftNPK(
 
     override fun getEntity(): LivingEntity = nmsPlayer.bukkitEntity
 
+    override fun getTouchingHandler(): TouchingHandler? = touchingHandler
+
     override fun updateSkin(skin: Skin) {
         val gameProfile = nmsPlayer.profile
 
@@ -199,6 +204,10 @@ class CraftNPK(
         }
 
         visibility.clear()
+    }
+
+    override fun setTouchingHandler(touchingHandler: TouchingHandler) {
+        this.touchingHandler = touchingHandler
     }
 
     private fun createProfile(skin: Skin?): GameProfile {

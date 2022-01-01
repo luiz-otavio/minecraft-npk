@@ -3,6 +3,7 @@ package io.github.luizotavio.npk
 import io.github.luizotavio.npk.impl.CraftNPK
 import io.github.luizotavio.npk.listener.NPCHandler
 import io.github.luizotavio.npk.skin.Skin
+import io.github.luizotavio.npk.touch.TouchingHandler
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.plugin.Plugin
@@ -24,12 +25,20 @@ class NPKFramework(
 
     val collection = hashSetOf<NPC>()
 
-    fun createNPC(id: String, location: Location): NPC {
-        return createNPC(id, location, null)
-    }
+    fun createNPC(id: String, location: Location) = createNPC(id, location, null, null)
 
-    fun createNPC(id: String, location: Location, skin: Skin?): NPC =
-        CraftNPK(plugin, id, location, skin).apply { collection.add(this) }
+    fun createNPC(id: String, location: Location, skin: Skin) = createNPC(id, location, skin, null)
+
+    fun createNPC(id: String, location: Location, touchingHandler: TouchingHandler? = null) = createNPC(id, location, null, touchingHandler)
+
+    fun createNPC(id: String, location: Location, skin: Skin?, touchingHandler: TouchingHandler? = null): NPC =
+        CraftNPK(plugin, id, location, skin).apply {
+            collection.add(this)
+
+            if (touchingHandler != null) {
+                setTouchingHandler(touchingHandler)
+            }
+        }
 
     fun unregister(id: String) {
         val npc = getNPC(id) ?: return
