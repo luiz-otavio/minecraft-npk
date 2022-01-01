@@ -14,7 +14,7 @@ class CraftHologram(
 ) {
 
     companion object {
-        val BETWEEN_DISTANCE = 0.28
+        const val BETWEEN_DISTANCE = 0.28
     }
 
     private val armorStands: MutableList<EntityArmorStand> = ArrayList()
