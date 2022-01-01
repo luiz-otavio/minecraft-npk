@@ -6,8 +6,8 @@ Easy to use, fast and efficient library to make non-playable-characters (NPC) in
 - 1.12.2-SNAPSHOT (1_12_R1).
 
 ## Requirements
-- Java 8
-- Gradle 7.+
+- Java 8;
+- Gradle 7.1 or higher.
 
 ## Installation
 Gradle DSL:
