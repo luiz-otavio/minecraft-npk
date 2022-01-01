@@ -1,7 +1,8 @@
-package io.github.luizotavio.npk
+package io.github.luizotavio.npk.impl
 
 import com.mojang.authlib.GameProfile
 import com.mojang.authlib.properties.Property
+import io.github.luizotavio.npk.NPC
 import io.github.luizotavio.npk.hologram.CraftHologram
 import io.github.luizotavio.npk.skin.Skin
 import io.github.luizotavio.npk.text.translate
@@ -189,7 +190,16 @@ class CraftNPK(
     }
 
     override fun destroy() {
-        TODO("Not yet implemented")
+        for (player in visibility) {
+            hologram.hideTo(player)
+
+            val connection = (player as CraftPlayer).handle.playerConnection
+
+            connection.sendPacket(packetPlayOutPlayerInfoRemove)
+            connection.sendPacket(packetPlayOutEntityDestroy)
+        }
+
+        visibility.clear()
     }
 
     private fun createProfile(skin: Skin?): GameProfile {
