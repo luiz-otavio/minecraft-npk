@@ -30,3 +30,14 @@ compileKotlin {
         jvmTarget = "1.8"
     }
 }
+
+jar.enabled = false
+shadowJar.classifier = ""
+
+publishing {
+    publications {
+        shadow(MavenPublication) { publication ->
+            project.shadow.component(publication)
+        }
+    }
+}
