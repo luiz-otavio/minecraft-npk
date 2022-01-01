@@ -45,7 +45,7 @@ abstract class NPC(
 
     /**
      * Remove the given line from the NPC
-     * @param line Line to remove
+     * @param index Index of the line to remove
      */
     abstract fun removeLine(index: Int)
 
