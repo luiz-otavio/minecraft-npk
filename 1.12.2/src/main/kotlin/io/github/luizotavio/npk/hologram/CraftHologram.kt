@@ -22,8 +22,6 @@ class CraftHologram(
     private var current: Location
     private var base: Location
 
-    private var lastSize = 0
-
     private lateinit var packetPlayOutEntityDestroy: PacketPlayOutEntityDestroy
     private lateinit var packetPlayOutSpawnEntityLivings: Array<PacketPlayOutSpawnEntityLiving?>
 
