@@ -25,6 +25,14 @@ dependencies {
     compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT'
 }
 
+shadowJar {
+    classifier = ""
+
+    exclude '**/*.kotlin_metadata'
+    exclude '**/*.kotlin_module'
+    exclude '**/*.kotlin_builtins'
+}
+
 compileKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
@@ -32,7 +40,6 @@ compileKotlin {
 }
 
 jar.enabled = false
-shadowJar.classifier = ""
 
 publishing {
     publications {

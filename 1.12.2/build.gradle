@@ -17,6 +17,14 @@ repositories {
     mavenLocal()
 }
 
+shadowJar {
+    classifier = ""
+
+    exclude '**/*.kotlin_metadata'
+    exclude '**/*.kotlin_module'
+    exclude '**/*.kotlin_builtins'
+}
+
 dependencies {
     implementation project(":common")
 
@@ -32,7 +40,6 @@ compileKotlin {
 }
 
 jar.enabled = false
-shadowJar.classifier = ""
 
 publishing {
     publications {

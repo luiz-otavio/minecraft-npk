@@ -32,7 +32,13 @@ compileKotlin {
 }
 
 jar.enabled = false
-shadowJar.classifier = ""
+
+shadowJar {
+    classifier = ""
+    exclude '**/*.kotlin_metadata'
+    exclude '**/*.kotlin_module'
+    exclude '**/*.kotlin_builtins'
+}
 
 publishing {
     publications {
