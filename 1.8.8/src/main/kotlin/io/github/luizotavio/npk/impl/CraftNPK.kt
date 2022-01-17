@@ -182,7 +182,7 @@ class CraftNPK(
 
         gameProfile.properties.put(
             "textures",
-            Property("textures", skin.texture, skin.signature)
+            Property("textures", skin.value)
         )
 
         synchronized(visibility) {
@@ -219,7 +219,7 @@ class CraftNPK(
         if (skin != null) {
             gameProfile.properties.put(
                 "textures",
-                Property("textures", skin.texture, skin.signature)
+                Property("textures", skin.value)
             )
         }
 
