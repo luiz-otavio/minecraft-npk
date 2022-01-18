@@ -16,6 +16,7 @@ open class NPCEvent(
     companion object {
         val HANDLER_LIST = HandlerList()
 
+        @JvmStatic
         fun getHandlerList() = HANDLER_LIST
     }
 
